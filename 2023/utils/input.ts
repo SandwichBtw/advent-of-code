@@ -6,7 +6,7 @@ export function getInput(dayNumber: number) {
     const filePath = path.join(__dirname, '..', dayDirectory, 'input.txt');
 
     try {
-        return fs.readFileSync(filePath, 'utf-8');
+        return fs.readFileSync(filePath, 'utf-8').replace(/\r/g, "").trim();
     } catch (error: any) {
         console.error(`Error reading input file for day ${dayNumber}: ${error.message}`);
         return null;
